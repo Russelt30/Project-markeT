@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark bg-dark scrolling-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Flash App</a>
+        <div class="navbar-nav ml-auto">
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalForm" data-bs-whatever="@mdo">
+                Crear Categoria
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title fs-5" id="exampleModalLabel">Crear Categoria</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mx-3">
+                <form action="/create/category/" method="post">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-regular fa-id-badge prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form34">Id Categoria</label>
+                        <input type="number" name="id" id="form20" class="form-control validate"/>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-sharp fa-solid fa-user grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form29">Nombre</label>
+                        <input type="text" name="name" id="form29" class="form-control validate"/>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-pencil prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form32">Descripcion</label>
+                        <input type="text" name="description" id="form32" class="form-control validate"/>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-success">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Launch Modal Contact Form</a>
+</div>

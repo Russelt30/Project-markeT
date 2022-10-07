@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} - No Encontrado
+{% endblock %}
+
+{% block content %}
+<section id="not-found">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex">
+                <div id="content-not-found" class="justify-content-center align-self-center mx-auto my-5">
+                    <h1>No se ha encontrado la pagina</h1>
+                    <i class="fas fa-solid fa-diamond-exclamation"></i>
+                    <p>{{error}}</p>
+                    <a href="/" class="btn btn-warning">Ir al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

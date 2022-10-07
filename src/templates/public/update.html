@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}- Modificar Producto {% endblock %}
+{% block content %}
+<main id="main">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-edit-product" class="justify-contect-center align-self-center mx-auto my-5">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Modificar Producto</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="/update/product/{{ product.0 }}" method="post" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <label for="codeInput">Codigo</label>
+                                        <input type="number" name="code" class="form-control" id="codeInput"
+                                            value="{{ product.0 }}">
+                                    </div>
+                                    <div class=" col">
+                                        <label for="nameInput">Nombre</label>
+                                        <input type="text" name="name" class="form-control" id="nameInput"
+                                            value="{{ product.1 }}">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class=" md-form row">
+                                    <div class="col">
+                                        <label for="stockInput">Disponible</label>
+                                        <input type="number" name="stock" class="form-control" id="stockInput"
+                                            value="{{ product.2 }}">
+                                    </div>
+                                    <div class="col">
+                                        <label for="valueInput">Precio</label>
+                                        <input type="number" name="value" class="form-control" id="valueInput"
+                                            value="{{ product.3 }}">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="md-form-row">
+                                    <div class="col">
+                                        <label for="categoryInput">Precio</label>
+                                        <input type="number" name="value" class="form-control" id="categoryInput"
+                                            value="{{ product.4 }}">
+                                    </div>
+                                    <br>
+                                    <div class="md-form">
+                                        <button type="submit" class="btn btn-dark btn-block d-grid gap-2 col-6 mx-auto">
+                                            Actualizar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}- Inicio
+{% endblock %}
+
+{% block content %}
+<main id="main">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-main" class="justify-contect-center align-self-center mx-auto my-5">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Crear Producto</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="/" method="post" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <label for="codeInput">Codigo</label>
+                                        <input type="number" name="code" class="form-control" id="codeInput" required
+                                            autofocus>
+                                    </div>
+                                    <div class="col">
+                                        <label for="nameInput">Nombre</label>
+                                        <input type="text" name="name" class="form-control" id="nameInput" required>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <label for="stockInput">Cantidad</label>
+                                        <input type="number" name="stock" class="form-control" id="stockInput" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="valueInput">Precio</label>
+                                        <input type="number" name="value" class="form-control" id="valueInput" required>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="md-form-row">
+                                    <div class="col">
+                                        <select class="form-select" aria-label=".form-select-lg example" name="category"
+                                            id="categoryInput">
+                                            <option value="" selected>Selecionar categoria</option>
+                                            {% for category in categories %}
+                                            <option value="{{category.0}}">
+                                                {{category.1}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div class="md-form">
+                                        <button type="submit" class="btn btn-dark btn-block d-grid gap-2 col-6 mx-auto">
+                                            Crear
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <table id="example" class="table table-hover table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Disponible</th>
+                                    <th>Precio</th>
+                                    <th>Categoria</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in data %}
+
+
+                                <tr>
+                                    <td>{{product.0}}</td>
+                                    <td>{{product.1}}</td>
+                                    <td>{{product.2}}</td>
+                                    <td>{{product.3}}</td>
+                                    <td>{{product.4}}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                            <a href="/update/product/{{product.0}}" type="button"
+                                                class="btn btn-outline-success"><i
+                                                    class="fas fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <form action="/delete/product/{{product.0}}" method="post">
+                                                <button type="submit" class="btn btn-outline-danger"><i
+                                                        class="fas fa-solid fa-trash-can"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

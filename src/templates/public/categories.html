@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/create/category" method="post">
+        <input type="number" name="id" placeholder="id de la categoria"/>
+        <input type="text" name="name" placeholder="nombre de la categoria"/>
+        <input type="text" name="description" placeholder="descripcion de la categoria"/>
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    {% for category in dat %}
+        {{ category.0 }}
+        {{ category.1 }}
+
+        <form action="/delete/category/{{ category.0 }}" method="post">
+            <button>Eliminar</button>
+        </form>
+
+    {% endfor %}
+{% endblock %}
